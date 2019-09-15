@@ -1,0 +1,10 @@
+ersion: '3'
+
+services:
+  interface-exporter:
+    build: .
+    image: interface-exporter:v0.1.0
+    container_name: interface-exporter
+    network_mode: host
+    volumes:
+      - /sys/class/net:/sys/class/net:ro
