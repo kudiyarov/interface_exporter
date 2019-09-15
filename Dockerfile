@@ -9,6 +9,7 @@ WORKDIR /install
 COPY requirements.txt /install
 COPY interface_exporter.py /install
 RUN pip install -r requirements.txt && \
+    ln -s /lib/libc.musl-x86_64.so.1 ldd && \
     pyinstaller --onefile --clean ./interface_exporter.py
 
 FROM alpine:3.7
